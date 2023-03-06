@@ -24,6 +24,17 @@
   position: absolute;
 }
 
+.main{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 30px;
+  gap: 30px;
+  width: 1170px;
+  height: 851px;
+  margin-top: 99px;
+}
+
 .containerx{
   width:1170px;
   height:37px;
@@ -48,6 +59,16 @@
   right: 667.95px;
   top: 0px;
 
+}
+
+
+.page-title a{
+  color:#27272E;
+}
+
+.page-title a:hover{
+  color:#4C6FFF;
+  text-decoration: none;
 }
 
 .buttons{
@@ -107,9 +128,67 @@ display: flex;
 }
 
 .nav-item{
-  width:210px;
-  height:49px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+
+  width: 246px;
+  height: 51px;
+}
+
+.nav-item .content{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 16px 22px;
+  gap: 10px;
+
+  width: 244px;
+  height: 51px;
+}
+
+.badge{
+  display: flex;
+  align-items: center;
   
+  gap: 10px;
+  width: 28px;
+  height: 19px;
+  background: #E1E8FF;
+  border-radius: 100px;
+}
+
+.badge span{
+  width: 8px;
+  height: 15px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  color: #4C6FFF;
+}
+
+.badge-noti{
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 19px;
+  background: #FFE6E4;
+  border-radius: 100px;
+}
+
+.badge-noti span{
+  
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  color: #F16063;
 }
 
 .menu span{
@@ -122,13 +201,13 @@ display: flex;
 }
 
 .icon-text{
-  width:162px;
-  height:17px;
-  margin-top:16px;
-  margin-left:24px;
-  display:flex;
-  gap:20px;
-
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 20px;
+  width: 162px;
+  height: 17px;
 }
 
 .icon-text span{

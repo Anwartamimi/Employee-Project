@@ -16,11 +16,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet">
   
     <link rel="stylesheet" href="{% static 'employee_app/main.css' %}">
-    {% if title %}
-        <title>{{title}}</title>
-    {% else %}
-        <title>Employee</title>
-    {% endif %}
+    {% block title %}
+        <title></title>
+    {% endblock title %}
 
 </head>
   <body>
@@ -28,62 +26,70 @@
     <div class="layout position-relative">
 
       <div class="navbar-verticle position-aboslute">
-        <div class="logo">
-          <img src="{% static 'logo.png' %}" alt="Logo" width="30" height="30"> 
-          <span>Clever</span>
-        </div>
+        <a href="{% url 'home'%}">
+          <div class="logo">
+            <img src="{% static 'logo.png' %}" alt="Logo" width="30" height="30"> 
+            <span>Clever</span>
+          </div>
+        </a>
         <nav class="menu collapse d-lg-block sidebar collapse bg-white">
           <div class="position-sticky">
             <div class="list-group list-group-flush">
 
               <div class="nav-item">
-                <div class="content">
+                <a href="{% url 'dashboard' %}"><div class="content">
                   <div class="icon-text">
                     <i class="fa-solid fa-house"></i>
                     <span>Dashboard</span>
                   </div>
-                  
-                </div>
+                </div></a>
               </div>
 
               <div class="nav-item">
-                <div class="content">
-                  <div class="icon-text">
-                    <i class="fa-solid fa-chart-simple"></i>
-                    <span>Analytics</span>
+                <a href="{% url 'analytics'%}">
+                  <div class="content">
+                    <div class="icon-text">
+                      <i class="fa-solid fa-chart-simple"></i>
+                      <span>Analytics</span>
+                    </div>
+                    
                   </div>
-                  
-                </div>
+                </a>
               </div>
 
               <div class="nav-item">
-                <div class="content">
+                <a href="{% url 'messages'%}">
+                  <div class="content d-flex">
                   <div class="icon-text">
                     <i class="fa-regular fa-comment"></i>
                     <span>Messages</span>
-                  </div>
-                  
-                </div>
+                  </div>  
+                  <div class="badge"><span>6</span></div>            
+                </div></a>
               </div>
 
               <div class="nav-item">
-                <div class="content">
-                  <div class="icon-text">
-                    <i class="fa-regular fa-bookmark"></i>
-                    <span>Collections</span>
+                <a href="{% url 'collections'%}">
+                  <div class="content">
+                    <div class="icon-text">
+                      <i class="fa-regular fa-bookmark"></i>
+                      <span>Collections</span>
+                    </div>
+                    
                   </div>
-                  
-                </div>
+                </a>
               </div>
 
               <div class="nav-item">
-                <div class="content">
-                  <div class="icon-text">
-                    <i class="fa-solid fa-user-group"></i>
-                    <span>Users</span>
+                <a href="{% url 'users' %}">
+                  <div class="content">
+                    <div class="icon-text">
+                      <i class="fa-solid fa-user-group"></i>
+                      <span>Users</span>
+                    </div>
+                    
                   </div>
-                  
-                </div>
+                </a>
               </div>
              
             </div>
@@ -98,21 +104,26 @@
             <div class="list-group list-group-flush">
 
               <div class="nav-item">
-                <div class="content">
-                  <div class="icon-text">
-                    <i class="fa-solid fa-gear"></i>
-                    <span>Settings</span>
+                <a href="{% url 'settings'%}">
+                  <div class="content">
+                    <div class="icon-text">
+                      <i class="fa-solid fa-gear"></i>
+                      <span>Settings</span>
+                    </div>
                   </div>
-                </div>
+                </a>
               </div>
 
               <div class="nav-item">
-                <div class="content">
-                  <div class="icon-text">
-                    <i class="fa-regular fa-bell"></i>
-                    <span>Notifications</span>
+                <a href="{% url 'notifications'%}">
+                  <div class="content d-flex">
+                    <div class="icon-text">
+                      <i class="fa-regular fa-comment"></i>
+                      <span>Notifications</span>
+                    </div>  
+                    <div class="badge-noti"><span>23</span></div>            
                   </div>
-                </div>
+                </a>
               </div>
              
             </div>
@@ -135,10 +146,21 @@
 
               <div class="nav-item">
                 <div class="content">
+                
+                {%if request.user.is_authenticated %}
                   <div class="icon-text">
                     <i class="fa-solid fa-right-from-bracket"></i>
-                    <span>Logout</span>
+                    <span><a href="{% url 'logout'%}">Logout</a></span>
                   </div>
+                {%else%}
+                
+                <div class="icon-text">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span><a href="{% url 'login'%}">Login</a></span>
+                  </div>
+                
+                {%endif%}
+                  
                 </div>
               </div>
              
@@ -153,7 +175,7 @@
         <div class="heading-page">
           <div class="containerx">
             <div class="elements d-flex">
-              <div class="page-title mr-auto">Dashboard</div>
+              <div class="page-title mr-auto"><a href="{% url 'dashboard'%}">Dashboard</a></div>
               <div class="buttons d-flex">
                 <button class="x-button">
                   <i class="fa-solid fa-pen-to-square"></i>
@@ -171,6 +193,10 @@
           </div>
 
         </div>
+        <div class="main">
+          {% block content %}
+          {% endblock content %}
+        </div>
       </div>
 
 
@@ -179,8 +205,7 @@
     
 
 
-    {% block content %}
-    {% endblock content %}
+    
    
    
     <!-- Optional JavaScript -->

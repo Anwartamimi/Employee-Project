@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="center">
+	<h2>Employees List</h2>
+	{% if employees %}
+	<ul class="employees">
+		{% for employee in employees %}
+			<li>Full Name: {{ employee.full_name }}</li>
+            <li>Birth of date: {{ employee.birth_date }}</li>
+            <li>Joining Date: {{ employee.joining_date }}</li>
+            <li>Department: {{ employee.department }}</li>
+            <li>Status: {{ employee.is_active }}</li>
+		{% endfor %}
+	{% else %}
+		<p>There's no employees!</p>
+	{% endif %}
+	</ul>
+</div>
+{% endblock content %}

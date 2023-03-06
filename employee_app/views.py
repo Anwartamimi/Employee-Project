@@ -1,30 +1,22 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
+
+from django.contrib.auth.models import User
+from .models import (
+    Department,
+    Attendance,
+    Employee_Applicant,
+    Employee,
+    Job_Application,
+    )
+
+
+from django.views.generic.list import ListView
 
 # Create your views here.
 
 def home(request):
     
     return render(request, 'employee_app/home.html', {})
-
-def dashboard(request):
-    
-    return render(request, 'employee_app/dashboard.html', {})
-
-def analytics(request):
-    
-    return render(request, 'employee_app/analytics.html', {})
-
-def messages(request):
-    
-    return render(request, 'employee_app/messages.html', {})
-
-def collections(request):
-    
-    return render(request, 'employee_app/collections.html', {})
-
-def users(request):
-    
-    return render(request, 'employee_app/users.html', {})
 
 def settings(request):
     
@@ -33,3 +25,29 @@ def settings(request):
 def notifications(request):
     
     return render(request, 'employee_app/notifications.html', {})
+
+
+class DepartmentList(ListView):
+    model = Department
+    context_object_name = 'departments'
+
+
+class AttencanceListView(ListView):
+    model = Attendance
+    context_object_name = 'attendances'
+
+class employee_applicantsList(ListView):
+    model = Employee_Applicant
+    context_object_name = 'employee_applicants'
+
+
+class EmployeesListView(ListView):
+    model = Employee
+    context_object_name = 'employees'
+
+        
+
+class JobAapplicationsList(ListView):
+    model = Job_Application
+    context_object_name = 'job_applications'
+

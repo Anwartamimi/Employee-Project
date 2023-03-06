@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="center">
+	<h2>Job Applications List</h2>
+	
+	{% if job_applications %}	
+	<table>
+	{% for job_application in job_applications %}
+		<tr>
+			<th>Job Title</th>
+			<th>Description</th>
+			<th>Publish Status</th>
+			<th>Department</th>
+		</tr>
+		<tr>
+			<td>{{ job_application.job_title }}</td>
+			<td>{{ job_application.job_description }}</td>
+			<td>{{ job_application.is_published }}</td>
+			<td>{{ job_application.department }}</td>	
+		</tr>
+	
+	{% endfor %}
+	</table>
+	{% endif %}
+
+</div>
+{% endblock content %}

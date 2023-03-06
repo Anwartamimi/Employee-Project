@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="center">
+	<h2>Employee Applicants List</h2>
+	{% if employee_applicants %}
+	<ul class="employee_applicants">
+		{% for employee_applicant in employee_applicants %}
+			
+		{% endfor %}
+	{% else %}
+		<p>There's no employee applicants!</p>
+	{% endif %}
+	</ul>
+</div>
+{% endblock content %}

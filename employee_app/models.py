@@ -31,9 +31,7 @@ class Employee(models.Model):
     shift_start_at = models.DateField()
     shift_ends_at = models.DateField()
 
-
-
-
+        
 
 class Employee_Applicant(models.Model):
     pass

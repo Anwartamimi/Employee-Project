@@ -37,20 +37,20 @@
             <div class="list-group list-group-flush">
 
               <div class="nav-item">
-                <a href="{% url 'dashboard' %}"><div class="content">
+                <a href="{% url 'attendances' %}"><div class="content">
                   <div class="icon-text">
                     <i class="fa-solid fa-house"></i>
-                    <span>Dashboard</span>
+                    <span>Attendances</span>
                   </div>
                 </div></a>
               </div>
 
               <div class="nav-item">
-                <a href="{% url 'analytics'%}">
+                <a href="{% url 'departments'%}">
                   <div class="content">
                     <div class="icon-text">
                       <i class="fa-solid fa-chart-simple"></i>
-                      <span>Analytics</span>
+                      <span>Departments</span>
                     </div>
                     
                   </div>
@@ -58,22 +58,22 @@
               </div>
 
               <div class="nav-item">
-                <a href="{% url 'messages'%}">
+                <a href="{% url 'employee_applicants'%}">
                   <div class="content d-flex">
                   <div class="icon-text">
                     <i class="fa-regular fa-comment"></i>
-                    <span>Messages</span>
+                    <span>Applicants</span>
                   </div>  
                   <div class="badge"><span>6</span></div>            
                 </div></a>
               </div>
 
               <div class="nav-item">
-                <a href="{% url 'collections'%}">
+                <a href="{% url 'employees'%}">
                   <div class="content">
                     <div class="icon-text">
                       <i class="fa-regular fa-bookmark"></i>
-                      <span>Collections</span>
+                      <span>Employees</span>
                     </div>
                     
                   </div>
@@ -81,11 +81,11 @@
               </div>
 
               <div class="nav-item">
-                <a href="{% url 'users' %}">
+                <a href="{% url 'job_applications' %}">
                   <div class="content">
                     <div class="icon-text">
                       <i class="fa-solid fa-user-group"></i>
-                      <span>Users</span>
+                      <span>Job applications</span>
                     </div>
                     
                   </div>
@@ -175,7 +175,7 @@
         <div class="heading-page">
           <div class="containerx">
             <div class="elements d-flex">
-              <div class="page-title mr-auto"><a href="{% url 'dashboard'%}">Dashboard</a></div>
+              <div class="page-title mr-auto"><a href="{% url 'attendances'%}">Attendances</a></div>
               <div class="buttons d-flex">
                 <button class="x-button">
                   <i class="fa-solid fa-pen-to-square"></i>

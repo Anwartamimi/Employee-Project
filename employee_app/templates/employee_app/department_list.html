@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="center">
+	<h2>Departments List</h2>
+	{% if departments %}
+	<ul class="departments">
+		{% for department in departments %}
+			<li>{{ department.name }}			 
+		    </li>
+		{% endfor %}
+	{% else %}
+		<p>There's no departments!</p>
+	{% endif %}
+	</ul>
+</div>
+{% endblock content %}

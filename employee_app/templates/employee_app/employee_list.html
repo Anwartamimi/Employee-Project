@@ -2,7 +2,99 @@
 
 {% block content %}
 <div class="center">
-	<h2>Employees List</h2>
+
+
+	<div class="tables">
+		<div class="heading-pagex">
+			<div class="content-heading">
+				<span>Employees</span>
+			</div>
+			<div class="horizontal">
+				
+			</div>
+		</div>
+		<div class="heading-section position-absolute">
+			<div class="title">
+				✻ Our Employees
+			</div>
+			<div class="text">
+				All our employees
+			</div>
+
+		</div>
+
+
+		<table >
+			<colgroup>
+			  <col span="1" style="width: 250px;">
+			  <col span="1" style="width: 166px;">
+			  <col span="1" style="width: 155px;">
+			  <col span="1" style="width: 228px;">
+			  <col span="1" style="width: 144px;">
+			  <col span="1" style="width: 144px;">
+			</colgroup>
+			<thead>
+				<th>
+					<tr>
+						<td><span>Employees</span></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</th>
+			</thead>
+			<tbody>
+			  <tr>
+				<td><span>Full Name</span></td>
+				<td><span>Department</span></td>
+				<td><span>Is Active</span></td>
+				<td><span>Job Application</span></td>
+				<td><span>Start Shift At</span></td>
+				<td><span>End Shift At</span></td>
+			  </tr>
+			  <tr>
+				<td><span>{{ user.username }}</span></td>
+				<td><span></span></td>
+				<td><span></span></td>
+				<td><span></span></td>
+				<td><span></span></td>
+				<td><span></span></td>
+			  </tr>
+			  <tr>
+				<td><span></span></td>
+				<td><span></span></td>
+				<td><span></span></td>
+				<td><span></span></td>
+				<td><span></span></td>
+				<td><span></span></td>
+			  </tr>
+			  <tr>
+				<td><span></span></td>
+				<td><span></span></td>
+				<td><span></span></td>
+				<td><span></span></td>
+				<td><span></span></td>
+				<td><span></span></td>
+			  </tr>
+			  <tr>
+				<td><span></span></td>
+				<td><span></span></td>
+				<td><span></span></td>
+				<td><span></span></td>
+				<td><span></span></td>
+				<td><span></span></td>
+			  </tr>
+
+			</tbody>
+		  </table>
+
+	</div>
+
+	
+
+	<!--<h2>Employees List</h2>
 	{% if employees %}
 	<ul class="employees">
 		{% for employee in employees %}
@@ -16,5 +108,8 @@
 		<p>There's no employees!</p>
 	{% endif %}
 	</ul>
+	-->
+
+
 </div>
 {% endblock content %}

@@ -16,9 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet">
   
     <link rel="stylesheet" href="{% static 'employee_app/main.css' %}">
-    {% block title %}
-        <title></title>
-    {% endblock title %}
+    
 
 </head>
   <body>
@@ -175,7 +173,10 @@
         <div class="heading-page">
           <div class="containerx">
             <div class="elements d-flex">
-              <div class="page-title mr-auto"><a href="{% url 'attendances'%}">Attendances</a></div>
+              <div class="page-title mr-auto">
+                {% block title %}
+                {% endblock title%}
+              </div>
               <div class="buttons d-flex">
                 <button class="x-button">
                   <i class="fa-solid fa-pen-to-square"></i>

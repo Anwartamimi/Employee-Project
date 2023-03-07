@@ -1,18 +1,15 @@
 {% extends 'base.html' %}
 
+{% block title %}
+Employees
+{% endblock title %}
+
 {% block content %}
 <div class="center">
 
 
 	<div class="tables">
-		<div class="heading-pagex">
-			<div class="content-heading">
-				<span>Employees</span>
-			</div>
-			<div class="horizontal">
-				
-			</div>
-		</div>
+		
 		<div class="heading-section position-absolute">
 			<div class="title">
 				✻ Our Employees
@@ -24,7 +21,7 @@
 		</div>
 
 
-		<table >
+		<table class="card-table">
 			<colgroup>
 			  <col span="1" style="width: 250px;">
 			  <col span="1" style="width: 166px;">
@@ -43,73 +40,34 @@
 						<td></td>
 						<td></td>
 					</tr>
+					<tr>
+						<td><span>Full Name</span></td>
+						<td><span>Department</span></td>
+						<td><span>Is Active</span></td>
+						<td><span>Job Application</span></td>
+						<td><span>Start Shift At</span></td>
+						<td><span>End Shift At</span></td>
+					  </tr>
 				</th>
 			</thead>
+			
 			<tbody>
+			 {% for employee in employees %}
 			  <tr>
-				<td><span>Full Name</span></td>
-				<td><span>Department</span></td>
-				<td><span>Is Active</span></td>
-				<td><span>Job Application</span></td>
-				<td><span>Start Shift At</span></td>
-				<td><span>End Shift At</span></td>
+				<td><span>{{ employee.full_name}}</span></td>
+				<td><span>{{ employee.department}}</span></td>
+				<td><span>{{ employee.is_active}}</span></td>
+				<td><span>{{ employee.job_application}}</span></td>
+				<td><span>{{ employee.shift_start_at}}</span></td>
+				<td><span>{{ employee.shift_ends_at}}</span></td>
 			  </tr>
-			  <tr>
-				<td><span>{{ user.username }}</span></td>
-				<td><span></span></td>
-				<td><span></span></td>
-				<td><span></span></td>
-				<td><span></span></td>
-				<td><span></span></td>
-			  </tr>
-			  <tr>
-				<td><span></span></td>
-				<td><span></span></td>
-				<td><span></span></td>
-				<td><span></span></td>
-				<td><span></span></td>
-				<td><span></span></td>
-			  </tr>
-			  <tr>
-				<td><span></span></td>
-				<td><span></span></td>
-				<td><span></span></td>
-				<td><span></span></td>
-				<td><span></span></td>
-				<td><span></span></td>
-			  </tr>
-			  <tr>
-				<td><span></span></td>
-				<td><span></span></td>
-				<td><span></span></td>
-				<td><span></span></td>
-				<td><span></span></td>
-				<td><span></span></td>
-			  </tr>
-
+			  
+			  {% endfor %}
 			</tbody>
+			
 		  </table>
 
 	</div>
-
-	
-
-	<!--<h2>Employees List</h2>
-	{% if employees %}
-	<ul class="employees">
-		{% for employee in employees %}
-			<li>Full Name: {{ employee.full_name }}</li>
-            <li>Birth of date: {{ employee.birth_date }}</li>
-            <li>Joining Date: {{ employee.joining_date }}</li>
-            <li>Department: {{ employee.department }}</li>
-            <li>Status: {{ employee.is_active }}</li>
-		{% endfor %}
-	{% else %}
-		<p>There's no employees!</p>
-	{% endif %}
-	</ul>
-	-->
-
 
 </div>
 {% endblock content %}

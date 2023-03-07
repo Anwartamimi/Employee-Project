@@ -1,17 +1,38 @@
 {% extends 'base.html' %}
 
+{% block title %}
+Departments
+{% endblock title %}
+
 {% block content %}
-<div class="center">
-	<h2>Departments List</h2>
-	{% if departments %}
-	<ul class="departments">
-		{% for department in departments %}
-			<li>{{ department.name }}			 
-		    </li>
-		{% endfor %}
-	{% else %}
-		<p>There's no departments!</p>
-	{% endif %}
-	</ul>
+
+<div class="center ">
+
+
+	<div class="tables">
+		
+		<div class="heading-section position-absolute">
+			<div class="title">
+				✻ Our Departments
+			</div>
+			<div class="text">
+				Click on any department to view more info.
+			</div>
+
+		</div>
+
+		<div class="dep-list ">
+			{% for department in departments %}
+			<div class="dep-item">{{ department.name }}</div>
+			{% endfor %}
+		</div>
+
+
+	</div>
+
+
+	
+
+	
 </div>
 {% endblock content %}

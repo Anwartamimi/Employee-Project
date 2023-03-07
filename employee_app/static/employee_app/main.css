@@ -138,9 +138,19 @@ display: flex;
   flex-direction: row;
   align-items: center;
   padding: 0px;
-
   width: 246px;
   height: 51px;
+  border: 2px solid #EDF2F7;
+}
+
+.nav-item:hover{
+  background-color: #EDF2F7;
+
+}
+
+.nav-item:active{
+  background-color: #4C6FFF;
+
 }
 
 .nav-item .content{
@@ -149,7 +159,6 @@ display: flex;
   align-items: center;
   padding: 16px 22px;
   gap: 10px;
-
   width: 244px;
   height: 51px;
 }
@@ -228,6 +237,8 @@ display: flex;
 
 }
 
+
+
 .vr{
   width:210;
   border: 1px solid #EDF2F7;
@@ -292,82 +303,81 @@ display: flex;
   padding: 0px;
   gap: 10px;
   width: 1170px;
-  height: 1319px;
-  background: #FFFFFF;
+  height: 1300px;
+  background: #F7FAFC;
   border-radius: 16px;
 }
 
-
 table {
   width: 1110px;
-  margin-top: 251px;
- 
+  margin-top: 151px;
+  border: 1px solid #EDF2F7;
 }
 
+.card-table{
+  background-color: white;
+  width: 1110px;
+  max-height: 692px;
+  border-radius: 16px;
 
-td:first-child {
-  background-color: #32a852;
-}
-
-td:nth-child(2) {
-  background-color: #aaaaaa;
-}
-td:nth-child(3) {
-  background-color: #b67373;
-}
-td:nth-child(4) {
-  background-color: #4b3cad;
-}
-td:nth-child(5) {
-  background-color: #bc6536;
-}
-td:last-child {
-  background-color: #5696c7;
 }
 
-thead td:first-child {
-  background-color: orange;
-  
+thead tr:nth-child(3) {
+  background-color: #EDF2F9;
 }
 
-thead td:first-child span{
-width: 47px;
-height: 24px;
-margin-left: 24px;
-margin-top:18px;
+thead td span{
+height: 52px;
 font-family: 'Inter';
 font-style: normal;
 font-weight: 600;
-font-size: 14px;
-line-height: 24px;
-color: #1F2D3D;
-  
-}
-thead td:nth-child(2) {
-  background-color: orange;
-}
-thead td:nth-child(3) {
-  background-color: orange;
-}
-thead td:nth-child(4) {
-  background-color: orange;
-}
-thead td:nth-child(5) {
-  background-color: orange;
-}
-thead td:last-child {
-  background-color: orange;
+font-size: 10px;
+line-height: 16px;
+display: flex;
+align-items: center;
+letter-spacing: 0.06em;
+text-transform: uppercase;
+color: #8492A6;
+margin-left:24px;
 }
 
 tbody td span{
   margin-left: 24px;
+
+}
+
+tbody td{
+  box-shadow: inset 0px -1px 0px #EDF2F7;
+  height: 52px;
+
+}
+
+tbody td span{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #425466;
+  height: 52px;
+
+}
+
+tbody td:first-child span{
+
+  font-family: 'Inter';
+  font-style: bold;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 20px;
+  color: #27272E;
+
 }
 
 .content-heading{
   position: absolute;
   width: 859px;
   height: 41.62px;
-  
 }
 
 .content-heading span{
@@ -382,8 +392,8 @@ tbody td span{
   font-size: 36px;
   line-height: 136.02%;
   color: #27272E;
-
 }
+
 .heading-section{
   position: absolute;
   width: 1110px;
@@ -391,8 +401,6 @@ tbody td span{
   flex: none;
   align-self: stretch;
   flex-grow: 0;
-  margin-top: 154px;
-  background-color: yellow;
 }
 
 .heading-section .title{
@@ -430,4 +438,184 @@ tbody td span{
   width:1112px;
   height: 1px;
   background: #E2E8F0; 
+}
+
+/** Job applications **/
+
+.app-row{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 30px;
+  margin-top: 151px;
+  width: 1490px;
+  height: 700px;
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+  flex-wrap: wrap;
+  width: 100%;
+  overflow-y: scroll;
+
+}
+
+.card-image{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 10px;
+  width: 350px;
+  height: 456px;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 1px rgba(12, 26, 75, 0.24), 0px 3px 8px -1px rgba(50, 50, 71, 0.05);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.card-image .image{
+  padding: 8px 8px 0px;
+  width: 334px;
+  height: 223px;
+  margin-left: 8px;
+  margin-top: 8px;
+  background-color: #F7936F;
+}
+
+.card-image .contents{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 30px;
+  gap: 30px;
+  position: relative;
+  background: #F7FAFC;
+}
+
+.card-image .contents .app-heading{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 3px;
+  width: 318px;
+  height: 51px;
+}
+
+
+.card-image .contents .app-text{
+  width: 318px;
+  max-height: 69px;
+  overflow:hidden;
+}
+
+.card-image .other{
+  width: 318px;
+  height: 31px;
+}
+
+/*Departments */
+
+.dep-list{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 14px 12px;
+  gap: 6px;
+  width: 400px;
+  height: 500px;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 1px rgba(12, 26, 75, 0.2), 0px 1px 3px rgba(50, 50, 71, 0.1);
+  border-radius: 8px;
+  margin-top: 151px;
+}
+
+.center-content{
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+
+.dep-item{
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #EDF2F7;
+  
+
+}
+.dep-item:hover{
+  background-color: #EDF2F7;
+}
+.dep-item:active{
+  background-color: #4C6FFF;
+
+}
+
+/* Responsive */
+
+@media (min-width: 1281px) {
+  
+  /* CSS */
+  
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  
+  /* CSS */
+  
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  
+  /* CSS */
+  
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1281px) and (orientation: landscape) {
+  
+  /* CSS */
+  
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+  
+  /* CSS */
+  
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  
+  /* CSS */
+  
 }

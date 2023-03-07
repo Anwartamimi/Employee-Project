@@ -1,28 +1,44 @@
 {% extends 'base.html' %}
 
+{% block title %}
+Job Applications
+{% endblock title %}
+
 {% block content %}
 <div class="center">
-	<h2>Job Applications List</h2>
-	
-	{% if job_applications %}	
-	<table>
-	{% for job_application in job_applications %}
-		<tr>
-			<th>Job Title</th>
-			<th>Description</th>
-			<th>Publish Status</th>
-			<th>Department</th>
-		</tr>
-		<tr>
-			<td>{{ job_application.job_title }}</td>
-			<td>{{ job_application.job_description }}</td>
-			<td>{{ job_application.is_published }}</td>
-			<td>{{ job_application.department }}</td>	
-		</tr>
-	
-	{% endfor %}
-	</table>
-	{% endif %}
+
+	<div class="tables">
+		
+		<div class="heading-section position-absolute">
+			<div class="title">
+				✻ All Job Applications List
+			</div>
+			<div class="text">
+				Our employees submit these applications.
+			</div>
+
+		</div>
+		
+		<div class="app-row">
+			{% for job_application in job_applications %}
+			<div class="card-image">
+				<div class="image text-center">Image</div>
+				<div class="contents">
+					<div class="app-heading">
+						<div class="xx"><strong>Job Title:</strong> {{ job_application.job_title }}</div>
+						<div class="yy"><strong>Department:</strong> {{ job_application.department }}</div>
+					</div>
+					<div class="app-text"><strong>Description:</strong> {{ job_application.job_description }}</div>
+					<div class="other"><strong>Published:</strong> {{ job_application.is_published }}</div>
+				</div>
+			</div>
+			{% endfor %}
+			
+		</div>
+		
+
+
+	</div>
 
 </div>
 {% endblock content %}

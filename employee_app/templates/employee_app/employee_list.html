@@ -5,10 +5,10 @@ Employees
 {% endblock title %}
 
 {% block content %}
+
 <div class="center">
 
-
-	<div class="tables">
+	<div class="tables position-relative">
 		
 		<div class="heading-section position-absolute">
 			<div class="title">
@@ -20,53 +20,7 @@ Employees
 
 		</div>
 
-
-		<table class="card-table">
-			<colgroup>
-			  <col span="1" style="width: 250px;">
-			  <col span="1" style="width: 166px;">
-			  <col span="1" style="width: 155px;">
-			  <col span="1" style="width: 228px;">
-			  <col span="1" style="width: 144px;">
-			  <col span="1" style="width: 144px;">
-			</colgroup>
-			<thead>
-				<th>
-					<tr>
-						<td><span>Employees</span></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td><span>Full Name</span></td>
-						<td><span>Department</span></td>
-						<td><span>Is Active</span></td>
-						<td><span>Job Application</span></td>
-						<td><span>Start Shift At</span></td>
-						<td><span>End Shift At</span></td>
-					  </tr>
-				</th>
-			</thead>
-			
-			<tbody>
-			 {% for employee in employees %}
-			  <tr>
-				<td><span>{{ employee.full_name}}</span></td>
-				<td><span>{{ employee.department}}</span></td>
-				<td><span>{{ employee.is_active}}</span></td>
-				<td><span>{{ employee.job_application}}</span></td>
-				<td><span>{{ employee.shift_start_at}}</span></td>
-				<td><span>{{ employee.shift_ends_at}}</span></td>
-			  </tr>
-			  
-			  {% endfor %}
-			</tbody>
-			
-		  </table>
-
+		
 	</div>
 
 </div>

@@ -1,71 +1,42 @@
 * body{
 background-color: #F7FAFC;
-width: 1420px;
-height: 950px;
+height: 800%;
 
 }
 
-.layout{
-  width: 1420px;
-  height: 950px;
+.container{
+  height: 100%;
   position: relative;
-}
-
-.navbar-verticle{
-  width:250px;
-  height:950px;
-  position: absolute;
-  
-}
-
-.containers{
-  width:1170px;
-  height:950px;
-  position: absolute;
-  margin-left: 250px;
-}
-
-.heading-page{
-  width:1170px;
-  height:99px;
-  position: absolute;
 }
 
 .main{
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 30px;
+  padding-top: 30px;
   gap: 30px;
-  width: 1170px;
+  width: 100%;
   height: 851px;
-  margin-top: 99px;
-}
-
-.containerx{
-  width:1170px;
-  height:37px;
-  padding: 0px 30px;
-  margin-top:30px;
-  margin-bottom:32px;
-}
-
-.elements{
-  width:1110px;
 }
 
 .page-title{
-  width:472px;
+  width:100%;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
   font-size: 28px;
   line-height: 136.02%;
   height: 36px;
-  left: 30px;
-  right: 667.95px;
-  top: 0px;
+  padding:10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
+}
+
+.navbar-top{
+  display: flex;
+  margin-top:30px;
 }
 
 .page-title a{
@@ -78,7 +49,8 @@ height: 950px;
 }
 
 .buttons{
-  width:235px;
+  display: flex;
+  width:100%;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
@@ -87,124 +59,81 @@ height: 950px;
     
 }
 
-.x-button{
-  box-sizing: border-box;
 
-/* Auto layout */
-display: flex;
-  align-items: center;
-  padding: 12px 20px;
-  gap: 10px;
 
-  width: 119px;
-  height: 36px;
-
-  /* Border/Light */
-
-  border: 1px solid #EDF2F7;
-  border-radius: 6px;
+.topper{
+  width:100%;
 }
 
-.btn-base{
-  
+.topper .col{
+  width:50%;
+}
+
+.buttons-grid{
+  width:50%
+}
+
+.title-grid{
+  width:50%
+}
+
+.verticle-navbar{
+  position:absolute;
+  Width:100%;
+  Height:950px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.logo-grid{
+
+  width: 136.2px;
+  height: 36px;
+  margin-left: 24px;
+  margin-top: 30px;
+ 
+}
+
+
+.nav-item-grid{
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
-  padding: 12px 20px;
-  gap: 10px;
-  width: 100px;
-  height: 36px;
-  background: #4C6FFF;
-  border-radius: 6px;
-  color:#FFFFFF;
-}
-
-.logo{
-  width:136.2px;
-  height:36px;
-  margin-top:30px;
-  margin-left:24px;
-}
-
-.menu{
-  width:250px;
-  height:250px;
-  margin-top:46px;
-}
-
-.nav-item{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 0px;
-  width: 246px;
+  padding: 0;
+  width: 100%;
   height: 51px;
-  border: 2px solid #EDF2F7;
+  border: 2px solid #FFFFFF;
+  background-color: white;
+
+  
 }
 
-.nav-item:hover{
+.navbar-list{
+  margin-top:112px;
+}
+
+.nav-item-grid:hover{
   background-color: #EDF2F7;
 
 }
 
-.nav-item:active{
+.nav-item-grid:active{
   background-color: #4C6FFF;
 
 }
 
-.nav-item .content{
+.nav-item-grid .content{
   display: flex;
   flex-direction: row;
   align-items: center;
   padding: 16px 22px;
   gap: 10px;
-  width: 244px;
+  width: 50%;
   height: 51px;
 }
 
-.badge{
-  display: flex;
-  align-items: center;
-  
-  gap: 10px;
-  width: 28px;
-  height: 19px;
-  background: #E1E8FF;
-  border-radius: 100px;
-}
-
-.badge span{
-  width: 8px;
-  height: 15px;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 15px;
-  color: #4C6FFF;
-}
-
-.badge-noti{
-  display: flex;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 19px;
-  background: #FFE6E4;
-  border-radius: 100px;
-}
-
-.badge-noti span{
-  
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 15px;
-  color: #F16063;
-}
 
 .menu span{
   width:126px;
@@ -221,7 +150,7 @@ display: flex;
   align-items: center;
   padding: 0px;
   gap: 20px;
-  width: 162px;
+  width: 100%;
   height: 17px;
 }
 
@@ -237,10 +166,8 @@ display: flex;
 
 }
 
-
-
 .vr{
-  width:210;
+  width:100%;
   border: 1px solid #EDF2F7;
   margin-top:26px;
 }
@@ -250,7 +177,7 @@ display: flex;
   margin-top:24px;
 }
 
-.navuser{
+.nav-user{
   height:98px;
   margin-top: 321px;
 }
@@ -264,8 +191,6 @@ display: flex;
 .logo{
   width: 136.2px;
   height: 36px;
-  margin-left: 24px;
-  margin-top: 30px;
   gap:20px;
   display: flex;
   position: relative;
@@ -294,109 +219,25 @@ display: flex;
 
 }
 
+
 /** Employee **/
 
 .tables{
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  position: relative;
   padding: 0px;
-  gap: 10px;
-  width: 1170px;
-  height: 1300px;
+  gap: 30px;
+  width: 100%;
+  height: 100%;
   background: #F7FAFC;
   border-radius: 16px;
 }
 
-table {
-  width: 1110px;
-  margin-top: 151px;
-  border: 1px solid #EDF2F7;
-}
-
-.card-table{
-  background-color: white;
-  width: 1110px;
-  max-height: 692px;
-  border-radius: 16px;
-
-}
-
-thead tr:nth-child(3) {
-  background-color: #EDF2F9;
-}
-
-thead td span{
-height: 52px;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 600;
-font-size: 10px;
-line-height: 16px;
-display: flex;
-align-items: center;
-letter-spacing: 0.06em;
-text-transform: uppercase;
-color: #8492A6;
-margin-left:24px;
-}
-
-tbody td span{
-  margin-left: 24px;
-
-}
-
-tbody td{
-  box-shadow: inset 0px -1px 0px #EDF2F7;
-  height: 52px;
-
-}
-
-tbody td span{
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
-  color: #425466;
-  height: 52px;
-
-}
-
-tbody td:first-child span{
-
-  font-family: 'Inter';
-  font-style: bold;
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 20px;
-  color: #27272E;
-
-}
-
-.content-heading{
-  position: absolute;
-  width: 859px;
-  height: 41.62px;
-}
-
-.content-heading span{
-  position: absolute;
-  height: 41.62px;
-  left: 0px;
-  right: 251px;
-  top: 9px;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 136.02%;
-  color: #27272E;
-}
-
 .heading-section{
   position: absolute;
-  width: 1110px;
+  width: 100%;
   height: 67px;
   flex: none;
   align-self: stretch;
@@ -449,13 +290,12 @@ tbody td:first-child span{
   padding: 0px;
   gap: 30px;
   margin-top: 151px;
-  width: 1490px;
+  width: 100%;
   height: 700px;
   flex: none;
   order: 2;
   flex-grow: 0;
   flex-wrap: wrap;
-  width: 100%;
   overflow-y: scroll;
 
 }
@@ -466,8 +306,8 @@ tbody td:first-child span{
   align-items: flex-start;
   padding: 0px;
   gap: 10px;
-  width: 350px;
-  height: 456px;
+  width: 40%;
+  height: 350px;
   background: #FFFFFF;
   box-shadow: 0px 0px 1px rgba(12, 26, 75, 0.24), 0px 3px 8px -1px rgba(50, 50, 71, 0.05);
   border-radius: 16px;
@@ -476,8 +316,8 @@ tbody td:first-child span{
 
 .card-image .image{
   padding: 8px 8px 0px;
-  width: 334px;
-  height: 223px;
+  width: 100%;
+  height: 30%;
   margin-left: 8px;
   margin-top: 8px;
   background-color: #F7936F;
@@ -489,6 +329,7 @@ tbody td:first-child span{
   align-items: flex-start;
   padding: 30px;
   gap: 30px;
+  height: 70%;
   position: relative;
   background: #F7FAFC;
 }
@@ -498,20 +339,26 @@ tbody td:first-child span{
   flex-direction: column;
   align-items: flex-start;
   padding: 0px;
-  gap: 3px;
-  width: 318px;
+  gap: 30px;
+  width: 100%;
   height: 51px;
+}
+
+.other{
+  margin-top: 130px ;
 }
 
 
 .card-image .contents .app-text{
-  width: 318px;
+  width: 100%;
   max-height: 69px;
   overflow:hidden;
+  display: none;
+  
 }
 
 .card-image .other{
-  width: 318px;
+  width: 100%;
   height: 31px;
 }
 
@@ -523,7 +370,7 @@ tbody td:first-child span{
   align-items: flex-start;
   padding: 14px 12px;
   gap: 6px;
-  width: 400px;
+  width: 100%;
   height: 500px;
   background: #FFFFFF;
   box-shadow: 0px 0px 1px rgba(12, 26, 75, 0.2), 0px 1px 3px rgba(50, 50, 71, 0.1);
@@ -546,9 +393,9 @@ tbody td:first-child span{
   justify-content: center;
   align-items: center;
   border: 2px solid #EDF2F7;
-  
 
 }
+
 .dep-item:hover{
   background-color: #EDF2F7;
 }
@@ -557,65 +404,194 @@ tbody td:first-child span{
 
 }
 
-/* Responsive */
+.menu{
+  width:100%;
+  height:100%;
+  margin-top:46px;
+}
 
-@media (min-width: 1281px) {
-  
-  /* CSS */
+/* topbar grid */
+
+
+.grid-title{
+  width:50%;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 136.02%;
+}
+
+.order-last{
+  gap:16px;
+}
+
+.order-last button{
+  width: 100px;
+  height: 36px;
+ 
+}
+
+.download{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  gap: 10px;
+  height: 36px;
+  border-radius: 6px;
+  border: 1px solid #EDF2F7;
+  color: #16192C;
+  background-color:#F7FAFC;
+}
+
+.create{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  gap: 10px;
+  height: 36px;
+  background: #4C6FFF;
+  border-radius: 6px;
+  color:#FFFFFF;
+  border: 1px solid #EDF2F7;
+
+}
+
+.test-topbar{
+  margin-top: 30px;  
   
 }
 
-/* 
-  ##Device = Laptops, Desktops
-  ##Screen = B/w 1025px to 1280px
-*/
+/**********************************media
 
-@media (min-width: 1025px) and (max-width: 1280px) {
-  
-  /* CSS */
-  
+@media (min-width: 1025px) {
+
+ 
+
 }
 
-/* 
+/*
   ##Device = Tablets, Ipads (portrait)
   ##Screen = B/w 768px to 1024px
 */
 
-@media (min-width: 768px) and (max-width: 1024px) {
-  
-  /* CSS */
-  
-}
 
-/* 
+/*
   ##Device = Tablets, Ipads (landscape)
   ##Screen = B/w 768px to 1024px
 */
 
-@media (min-width: 768px) and (max-width: 1281px) and (orientation: landscape) {
-  
-  /* CSS */
-  
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  .app-text{
+    display: contents;
+  }
+ 
 }
 
-/* 
+@media (min-width: 576px) and (max-width: 768px){
+  
+  .card-image{
+    width: 100%;
+  }
+  .order-last{
+    width:170px;
+  }
+  .order-last button{
+    width:100px;
+  }
+  .order-first{
+    width:50px;
+    
+  }
+
+}
+
+/*
   ##Device = Low Resolution Tablets, Mobiles (Landscape)
   ##Screen = B/w 481px to 767px
 */
 
-@media (min-width: 481px) and (max-width: 767px) {
-  
-  /* CSS */
+
+@media (max-width: 576px) {
+
+  .nav-user{
+    height:98px;
+    margin-top: 10px;
+  }
+
+  .nav-item-grid{
+
+    display: flex;
+    justify-content: center;  
+    text-align: center;
+    
+  }
+
+  .icon-text{
+    
+    margin-right:40px;
+
+  }
+
+  .icon-text span{
+    width: auto;
+  }
+
+  .navbar-list{
+   
+    padding: 14px 12px;
+    gap: 6px;
+    width: 100%;
+    height: 600px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 1px rgba(12, 26, 75, 0.2), 0px 1px 3px rgba(50, 50, 71, 0.1);
+    border-radius: 8px;
+    margin-top: 0px;
+  }
+
+  .verticle-navbar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo-grid{
+    margin-left: -20px;
+  }
+
+  .app-heading {
+    font-size: 14px;
+    
+  }
+
+  .card-image{
+    height: 350px;
+    width: 100%;
+
+  }
+
+  .card-image .contents{
+    width: 100%;
+  }
   
 }
 
-/* 
-  ##Device = Most of the Smartphones Mobiles (Portrait)
-  ##Screen = B/w 320px to 479px
-*/
-
-@media (min-width: 320px) and (max-width: 480px) {
-  
-  /* CSS */
-  
+.card-image .contents{
+  width: 100%;
 }
+
+
+
+
+@media (max-width: 576px){
+  .con-grid{
+    margin-top: 700px;
+  }
+  
+} 

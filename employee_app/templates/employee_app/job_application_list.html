@@ -23,13 +23,13 @@ Job Applications
 			{% for job_application in job_applications %}
 			<div class="card-image">
 				<div class="image text-center">Image</div>
-				<div class="contents">
-					<div class="app-heading">
+				<div class="contents position-relative">
+					<div class="app-heading position-absolute">
 						<div class="xx"><strong>Job Title:</strong> {{ job_application.job_title }}</div>
 						<div class="yy"><strong>Department:</strong> {{ job_application.department }}</div>
 					</div>
-					<div class="app-text"><strong>Description:</strong> {{ job_application.job_description }}</div>
-					<div class="other"><strong>Published:</strong> {{ job_application.is_published }}</div>
+					<div class="app-text position-absolute"><strong>Description:</strong> {{ job_application.job_description }}</div>
+					<div class="other position-absolute"><strong>Published:</strong> {{ job_application.is_published }}</div>
 				</div>
 			</div>
 			{% endfor %}

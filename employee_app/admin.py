@@ -24,7 +24,11 @@ class EmployeeAdmin(admin.ModelAdmin):
     readonly_fields = ('shift_start_at', 'shift_ends_at')
 
 
-admin.site.register(Employee_Applicant)
+class EmployeeApplicantAdmin(admin.ModelAdmin):
+    list_display =['job_application', 'employee_full_name', 'employee_bio', 'status']
+
+
+admin.site.register(Employee_Applicant, EmployeeApplicantAdmin)
 admin.site.register(Attendance)
 admin.site.register(Department, DepartmentAdmin)
 admin.site.register(Job_Application, Job_ApplicationAdmin)

@@ -8,20 +8,48 @@ Employees
 
 <div class="center">
 
-	<div class="tables position-relative">
+	<div class="tables">
 		
 		<div class="heading-section position-absolute">
 			<div class="title">
-				✻ Our Employees
+				✻ Our Departments
 			</div>
 			<div class="text">
-				All our employees
+				Click on any department to view more info.
 			</div>
 
 		</div>
 
-		
+		<div class="dep-list ">
+			
+			<table class="table">
+				<thead>
+				  <tr>
+					<th scope="col">Full Name</th>
+					<th scope="col">Department</th>
+					<th scope="col">Status</th>
+					<th scope="col">BOD</th>
+				  </tr>
+				</thead>
+				{% for employee in employees %}
+				<tbody>
+				  <tr>
+					<th scope="row">{{ employee.full_name }}</th>
+					<td>{{ employee.department }}</td>
+					<td>{{ employee.is_active }}</td>
+					<td>{{ employee.birth_date }}</td>
+				  </tr>
+				 
+				</tbody>
+				{% endfor %}
+			  </table>
+			  
+			  
+		</div>
+
+
 	</div>
+
 
 </div>
 {% endblock content %}

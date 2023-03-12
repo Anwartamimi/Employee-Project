@@ -111,7 +111,7 @@ height: 800%;
 }
 
 .navbar-list{
-  margin-top:112px;
+  margin-top:50px;
 }
 
 .nav-item-grid:hover{
@@ -378,6 +378,11 @@ height: 800%;
   margin-top: 151px;
 }
 
+.dep-list p{
+  font-size: 16px;
+  font-weight: bold;
+}
+
 .center-content{
 
   display: block;
@@ -465,6 +470,57 @@ height: 800%;
 .test-topbar{
   margin-top: 30px;  
   
+}
+
+
+/* employee em-table */
+
+
+
+.table{
+  background: #FFFFFF;
+  border-radius: 16px;
+}
+
+.table thead tr{
+  background-color: #FAFAFB;
+}
+
+
+.table tbody td {
+  width: 31px;
+  height: 20px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #425466;
+}
+
+.table thead tr th{
+  width: 81px;
+  height: 16px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 16px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #8492A6;
+  
+}
+
+.table tbody tr th{
+  width: 63px;
+  height: 20px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 20px;
+  color: #27272E;
 }
 
 /**********************************media
@@ -562,7 +618,9 @@ height: 800%;
   }
 
   .logo-grid{
+    
     margin-left: -20px;
+
   }
 
   .app-heading {

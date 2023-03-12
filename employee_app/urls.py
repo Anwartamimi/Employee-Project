@@ -1,5 +1,12 @@
 from django.urls import path
 from . import views 
+from .views import (
+    ApplicantCreateView,
+    EmployeeApplicantDetailView,
+    ApplicantUpdateView,
+    ApplicantDeleteView, 
+    )
+
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -10,4 +17,10 @@ urlpatterns = [
     path('settings/', views.settings, name='settings'),
     path('notifications/', views.notifications, name='notifications'),
     path('departments/', views.DepartmentList.as_view(),name='departments'),
+
+    path('employee_applicants/new/', ApplicantCreateView.as_view(), name='applicant-create'),
+    path('employee_applicants/<int:pk>', EmployeeApplicantDetailView.as_view(), name='employee-applicant-detail'),
+    path('employee_applicants/<int:pk>/update', ApplicantUpdateView.as_view(), name='employee-applicant-update'),
+    path('employee_applicants/<int:pk>/delete', ApplicantDeleteView.as_view(), name='employee-applicant-delete'),
+
 ]

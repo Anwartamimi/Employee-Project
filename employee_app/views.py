@@ -9,8 +9,11 @@ from .models import (
     Job_Application,
     )
 
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
-from django.views.generic.list import ListView
+from django.views.generic import (
+    ListView, CreateView, DetailView, UpdateView, DeleteView
+)
 
 # Create your views here.
 
@@ -45,9 +48,48 @@ class EmployeesListView(ListView):
     model = Employee
     context_object_name = 'employees'
 
-        
 
 class JobAapplicationsList(ListView):
     model = Job_Application
     context_object_name = 'job_applications'
 
+
+class EmployeeApplicantDetailView(DetailView):
+    model = Employee_Applicant
+    template_name = 'employee_app/eapplicatant_detail.html'
+
+class ApplicantCreateView(LoginRequiredMixin, CreateView):
+    model = Employee_Applicant
+    template_name = 'employee_app/post_form.html'
+    fields = ['job_application','employee_full_name','employee_bio', 'status']
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+    
+class ApplicantUpdateView(LoginRequiredMixin,UserPassesTestMixin, UpdateView):
+    model = Employee_Applicant
+    template_name = 'employee_app/post_form.html'
+    fields = ['job_application','employee_full_name','employee_bio', 'status']
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+    
+    def test_func(self):
+        post = self.get_object()
+        if self.request.user == post.user:
+            return True
+        return False
+    
+
+class ApplicantDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Employee_Applicant
+    success_url = '/'
+    template_name = 'employee_app/post_form.html'
+
+    def test_func(self):
+        post = self.get_object()
+        if self.request.employee == post.user:
+            return True
+        return False

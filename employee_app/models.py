@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models import Q
+from django.urls import reverse
 
 
 class Department(models.Model):
@@ -50,6 +51,8 @@ class Employee_Applicant(models.Model):
 
     status = models.CharField(choices=status_choices, max_length=15, default='pending')
 
+    def get_absolute_url(self):
+        return reverse("employee-applicant-detail", kwargs={"pk": self.pk})
     
 
 class Attendance(models.Model):

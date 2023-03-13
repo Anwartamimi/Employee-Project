@@ -11,12 +11,16 @@ Employees
 	<div class="tables">
 		
 		<div class="heading-section position-absolute">
-			<div class="title">
-				✻ Our Departments
+			<div class="title d-flex">
+				<span class="mr-auto">✻ Our Employees</span>
+				
+				
 			</div>
+			
 			<div class="text">
-				Click on any department to view more info.
+				Click on any Employee to view more info.
 			</div>
+			
 
 		</div>
 
@@ -32,6 +36,7 @@ Employees
 				  </tr>
 				</thead>
 				{% for employee in employees %}
+				
 				<tbody>
 				  <tr>
 					<th scope="row">{{ employee.full_name }}</th>

@@ -21,8 +21,6 @@ class EmployeeAdmin(admin.ModelAdmin):
                     'is_active', 'job_application',
                     'shift_start_at', 'shift_ends_at']
     
-    readonly_fields = ('shift_start_at', 'shift_ends_at')
-
 
 class EmployeeApplicantAdmin(admin.ModelAdmin):
     list_display =['job_application', 'employee_full_name', 'employee_bio', 'status']

@@ -235,6 +235,10 @@ height: 800%;
   border-radius: 16px;
 }
 
+.home-page{
+  margin-top: 100px;
+}
+
 .heading-section{
   position: absolute;
   width: 100%;
@@ -256,10 +260,39 @@ height: 800%;
   font-size: 20px;
   line-height: 136.52%;
   color: #F7936F;
+  
 }
+
+
+
+.heading-section .title a{
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  gap: 10px;
+  height: 36px;
+  background: #4C6FFF;
+  border-radius: 6px;
+  color:#FFFFFF;
+  border: 1px solid #EDF2F7;
+}
+
 
 .heading-section .text {
   position: absolute;
+  margin-top: 36px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 30px;
+  color: #718096;
+}
+
+.heading-section .add-employee {
   margin-top: 36px;
   font-family: 'Inter';
   font-style: normal;
@@ -307,21 +340,14 @@ height: 800%;
   padding: 0px;
   gap: 10px;
   width: 40%;
-  height: 350px;
+  height: 250px;
   background: #FFFFFF;
   box-shadow: 0px 0px 1px rgba(12, 26, 75, 0.24), 0px 3px 8px -1px rgba(50, 50, 71, 0.05);
   border-radius: 16px;
   overflow: hidden;
 }
 
-.card-image .image{
-  padding: 8px 8px 0px;
-  width: 100%;
-  height: 30%;
-  margin-left: 8px;
-  margin-top: 8px;
-  background-color: #F7936F;
-}
+
 
 .card-image .contents{
   display: flex;
@@ -329,7 +355,7 @@ height: 800%;
   align-items: flex-start;
   padding: 30px;
   gap: 30px;
-  height: 70%;
+  height: 100%;
   position: relative;
   background: #F7FAFC;
 }
@@ -344,10 +370,6 @@ height: 800%;
   height: 51px;
 }
 
-.other{
-  margin-top: 130px ;
-}
-
 
 .card-image .contents .app-text{
   width: 100%;
@@ -360,6 +382,8 @@ height: 800%;
 .card-image .other{
   width: 100%;
   height: 31px;
+  margin-top: 100px ;
+
 }
 
 /*Departments */
@@ -460,6 +484,7 @@ height: 800%;
   padding: 12px 20px;
   gap: 10px;
   height: 36px;
+  width:100px;
   background: #4C6FFF;
   border-radius: 6px;
   color:#FFFFFF;
@@ -467,11 +492,14 @@ height: 800%;
 
 }
 
+.create:hover{
+  text-decoration: none;
+}
+
 .test-topbar{
   margin-top: 30px;  
   
 }
-
 
 /* employee em-table */
 
@@ -523,6 +551,7 @@ height: 800%;
   color: #27272E;
 }
 
+
 /**********************************media
 
 @media (min-width: 1025px) {
@@ -544,6 +573,12 @@ height: 800%;
 
 @media (min-width: 768px) and (max-width: 1024px) {
 
+  .card-image .other{
+    
+    margin-top: 130px ;
+  
+  }
+  
   .app-text{
     display: contents;
   }
@@ -565,6 +600,7 @@ height: 800%;
     width:50px;
     
   }
+
 
 }
 
@@ -629,7 +665,7 @@ height: 800%;
   }
 
   .card-image{
-    height: 350px;
+    height: 250px;
     width: 100%;
 
   }
@@ -653,3 +689,4 @@ height: 800%;
   }
   
 } 
+

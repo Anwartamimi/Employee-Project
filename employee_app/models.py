@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models import Q
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 
 class Department(models.Model):
@@ -33,7 +34,10 @@ class Employee(models.Model):
     shift_start_at = models.DateField(null=True, blank=True)
     shift_ends_at = models.DateField(null=True, blank=True)
 
-
+    def get_absolute_url(self):
+        return reverse("employees")
+    
+    
 class Employee_Applicant(models.Model):
 
     job_application = models.ForeignKey('Job_application', blank=True, null=True,
@@ -49,11 +53,13 @@ class Employee_Applicant(models.Model):
         ('pending', ('pending')),
     )
 
-    status = models.CharField(choices=status_choices, max_length=15, default='pending')
+    status = models.CharField(choices=status_choices, max_length=15, default='pending', null=True, blank=True)
 
     def get_absolute_url(self):
-        return reverse("employee-applicant-detail", kwargs={"pk": self.pk})
-    
+        return reverse("employee-applicant-update", kwargs={"pk": self.pk})
+        
+    def __str__(self):
+        return self.employee_full_name
 
 class Attendance(models.Model):
     pass

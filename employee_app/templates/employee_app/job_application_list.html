@@ -19,10 +19,11 @@ Job Applications
 
 		</div>
 		
-		<div class="app-row">
+		<!--
+			<div class="app-row">
 			{% for job_application in job_applications %}
 			<div class="card-image">
-				<div class="image text-center">Image</div>
+				
 				<div class="contents position-relative">
 					<div class="app-heading position-absolute">
 						<div class="xx"><strong>Job Title:</strong> {{ job_application.job_title }}</div>
@@ -35,6 +36,36 @@ Job Applications
 			{% endfor %}
 			
 		</div>
+		-->
+
+
+		<div class="dep-list ">
+			
+			<table class="table">
+				<thead>
+				  <tr>
+					<th scope="col">Job Application</th>
+					<th scope="col">Full Name</th>
+					<th scope="col">Bio</th>
+					<th scope="col">Status</th>
+				  </tr>
+				</thead>
+				{% for job_application in job_applications %}
+				<tbody>
+				  <tr>
+					<th scope="row">{{ job_application.job_title }}</th>
+					<td>{{ job_application.department }}</td>
+					<td>{{ job_application.job_description }}</td>
+					<td>{{ job_application.is_published }}</td>
+				  </tr>
+				 
+				</tbody>
+				{% endfor %}
+			  </table>
+			  
+			  
+		</div>
+
 		
 
 

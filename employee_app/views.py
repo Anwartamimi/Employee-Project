@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render
 
 from django.contrib.auth.models import User
 from .models import (
@@ -9,7 +9,7 @@ from .models import (
     Job_Application,
     )
 
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from django.views.generic import (
     ListView, CreateView, DetailView, UpdateView, DeleteView
@@ -18,8 +18,17 @@ from django.views.generic import (
 # Create your views here.
 
 def home(request):
+
+    employees_count = Employee.objects.all().count()
+    employees_applicant_count = Employee_Applicant.objects.all().count()
+    department_count = Department.objects.all().count()
+
     
-    return render(request, 'employee_app/home.html', {})
+    return render(request, 'employee_app/home.html',
+                   {'employees_count': employees_count,
+                    'employees_applicant_count': employees_applicant_count,
+                    'department_count': department_count,
+                                                      })
 
 def settings(request):
     
@@ -48,6 +57,8 @@ class EmployeesListView(ListView):
     model = Employee
     context_object_name = 'employees'
 
+    
+
 
 class JobAapplicationsList(ListView):
     model = Job_Application
@@ -61,35 +72,31 @@ class EmployeeApplicantDetailView(DetailView):
 class ApplicantCreateView(LoginRequiredMixin, CreateView):
     model = Employee_Applicant
     template_name = 'employee_app/post_form.html'
+    success_url = '/employee_applicants'
     fields = ['job_application','employee_full_name','employee_bio', 'status']
 
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super().form_valid(form)
     
-class ApplicantUpdateView(LoginRequiredMixin,UserPassesTestMixin, UpdateView):
+class ApplicantUpdateView(UpdateView):
     model = Employee_Applicant
-    template_name = 'employee_app/post_form.html'
+    template_name = 'employee_app/update_applicant.html'
+    success_url = '/employee_applicants'
     fields = ['job_application','employee_full_name','employee_bio', 'status']
 
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super().form_valid(form)
-    
-    def test_func(self):
-        post = self.get_object()
-        if self.request.user == post.user:
-            return True
-        return False
+    def get(self, request, *args, **kwargs):
+        return self.post(request, *args, **kwargs)
     
 
-class ApplicantDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+class ApplicantDeleteView(DeleteView):
+ 
     model = Employee_Applicant
-    success_url = '/'
-    template_name = 'employee_app/post_form.html'
+    success_url = '/employee_applicants'
 
-    def test_func(self):
-        post = self.get_object()
-        if self.request.employee == post.user:
-            return True
-        return False
+    def get(self, request, *args, **kwargs):
+        return self.post(request, *args, **kwargs)
+    
+class EmployeeCreateView(CreateView):
+    model = Employee
+    template_name = 'employee_app/add_employee.html'
+    fields = ['full_name','birth_date','department', 'bio', 'is_active', 'job_application', 'shift_start_at', 'shift_ends_at' ]
+
+    

@@ -20,13 +20,31 @@ Departments
 
 		</div>
 
+
 		<div class="dep-list ">
 			
-			<p>Here are the list of our departments you might find in our company:</p>
-			{% for department in departments %}
-			<div class="dep-item">{{ department.name }}</div>
-			{% endfor %}
+			<table class="table">
+				<thead>
+				  <tr>
+					<th scope="col">Department Name</th>
+					
+				  </tr>
+				</thead>
+				{% for department in departments %}
+				<tbody>
+				  <tr>
+					
+					<td>{{ department.name }}</td>
+					
+				  </tr>
+				 
+				</tbody>
+				{% endfor %}
+			  </table>
+			  
+			  
 		</div>
+
 
 
 	</div>

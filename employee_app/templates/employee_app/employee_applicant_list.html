@@ -2,7 +2,7 @@
 
 
 {% block title %}
-Employee Applicants 
+Applicants 
 {% endblock title %}
 
 {% block content %}
@@ -11,11 +11,51 @@ Employee Applicants
 
 	<div class="tables">
 
-		<div class="heading-section position-absolute">
-			<div class="title">✻ Employee Applicants</div>
+		<div class="heading-section  position-absolute">
+			<div class="title d-flex">
+				<span class="mr-auto">✻ Employees Applicants</span>
+				
+				<a href="{% url 'applicant-create' %}" class="create">
+					<i class="fa-solid fa-plus"></i>
+					<span>Create</span>
+				</a>
+
+			</div>
+
 			<div class="text">You can view our employee applicants.</div>
+			
+
 		</div>
 		
+
+		<div class="dep-list ">
+			
+			<table class="table">
+				<thead>
+				  <tr>
+					<th scope="col">Job Application</th>
+					<th scope="col">Full Name</th>
+					<th scope="col">Bio</th>
+					<th scope="col">Status</th>
+				  </tr>
+				</thead>
+				{% for applicant in employee_applicants %}
+				<tbody>
+				  <tr>
+					<th scope="row"><a href="{% url 'employee-applicant-update' applicant.id %}">{{ applicant.job_application }}</a></th>
+					<td>{{ applicant.employee_full_name }}</td>
+					<td>{{ applicant.employee_bio }}</td>
+					<td>{{ applicant.status }}</td>
+				  </tr>
+				 
+				</tbody>
+				{% endfor %}
+			  </table>
+			  
+			  
+		</div>
+
+
 	</div>
 	
 </div>

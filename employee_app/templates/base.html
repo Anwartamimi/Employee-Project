@@ -22,9 +22,11 @@
   <body>
 
 
+
       <div class="container container-fluid position-relative">  
 
         <div class="row" >
+
 
           <div class="col-xs-4 col-sm-5 col-md-4 col-lg-3">
           
@@ -61,6 +63,7 @@
                     </div>
                   </a>
                 </div>
+                
                 <div class="nav-item-grid">
                   <a href="{% url 'employee_applicants'%}">
                     <div class="content">
@@ -71,6 +74,7 @@
                                
                   </div></a>
                 </div>
+
                 <div class="nav-item-grid">
                   <a href="{% url 'employees'%}">
                     <div class="content">
@@ -81,6 +85,7 @@
                     </div>
                   </a>
                 </div>
+
                 <div class="nav-item-grid">
                   <a href="{% url 'job_applications' %}">
                     <div class="content">
@@ -132,7 +137,8 @@
 
                 
                 <div class="nav-item-grid">
-                  {%if request.user.is_authenticated %}
+                {%if request.user.is_authenticated %}
+
                   <a href="{% url 'logout'%}">
                     <div class="content">
                       <div class="icon-text">
@@ -141,7 +147,10 @@
                       </div>  
                                
                   </div></a>
-                  {% else %}
+                  
+                 {% else %}
+                  
+                 
                   <a href="{% url 'login'%}">
                     <div class="content">
                       <div class="icon-text">
@@ -150,55 +159,26 @@
                       </div>  
                                
                   </div></a>
+                  
                   {% endif %}
-
                 </div>
 
               </div>
-
-
             </div>
-
           </div>
 
-
+          
           <div class="col-xs-8 col-sm-7 col-md-8 col-lg-9 con-grid" >
 
-            <div class="test-topbar">
-              
-              <div class="container">
-                <div class="row">
-                 <div class="d-flex">
-                  <div class="col order-last d-flex mr-auto">
-                    <button class="download">
-                      <i class="fa-solid fa-pen-to-square"></i>
-                      <span>Download</span>
-                    </button>
-                    <button class="create">
-                      <i class="fa-solid fa-plus"></i>
-                      <span>Create</span>
-                    </button>
-                  </div>
-                 </div>
-                  
-                  <div class="col order-first">
-                    <div class="grid-title">
-                      {% block title %}
-                      {% endblock title %}
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-
+            
             <div class="main">
     
               <div class="container">
                 <div class="row">
                     <div class="col">
+                      
                      {% block content %}
+                    
                      {% endblock content %}
                     </div>
 
@@ -206,17 +186,9 @@
               </div>
             </div>
 
-            
-          
           </div>
-             
-                
-                
-                
-                
-                
-          
-          
+         
+              
           </div>
        
         </div>
@@ -227,6 +199,7 @@
 
     
    
+      
    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

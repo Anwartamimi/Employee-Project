@@ -27,7 +27,7 @@
 
         <div class="row" >
 
-
+          {%if request.user.is_authenticated %}
           <div class="col-xs-4 col-sm-5 col-md-4 col-lg-3">
           
             <div class="verticle-navbar">
@@ -166,11 +166,11 @@
               </div>
             </div>
           </div>
-
-          
           <div class="col-xs-8 col-sm-7 col-md-8 col-lg-9 con-grid" >
-
-            
+          {% else %}
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 con-grid" >
+          {% endif %}
+          
             <div class="main">
     
               <div class="container">

@@ -45,6 +45,7 @@ class Employee_Applicant(models.Model):
                                limit_choices_to=Q(is_published='True'))
 
     employee_full_name = models.CharField(max_length=100)
+    
     employee_bio = models.CharField(max_length=500)
 
     status_choices = (

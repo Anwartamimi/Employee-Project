@@ -1,4 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+
+from django.http import Http404
 
 from django.contrib.auth.models import User
 from .models import (
@@ -18,7 +22,9 @@ from django.views.generic import (
 # Create your views here.
 
 def home(request):
-
+    if not request.user.is_authenticated:
+        response = redirect('/login/')
+        return response
     employees_count = Employee.objects.all().count()
     employees_applicant_count = Employee_Applicant.objects.all().count()
     department_count = Department.objects.all().count()
@@ -43,19 +49,62 @@ class DepartmentList(ListView):
     model = Department
     context_object_name = 'departments'
 
+    def get(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            response = redirect('/login/')
+            return response
+        return super(DepartmentList, self).get(request, **kwargs)
+    def post(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            response = redirect('/login/')
+            return response
+        return super(DepartmentList, self).post(request, **kwargs)
 
 class AttencanceListView(ListView):
     model = Attendance
     context_object_name = 'attendances'
 
+    def get(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            response = redirect('/login/')
+            return response
+        return super(AttencanceListView, self).get(request, **kwargs)
+    def post(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            response = redirect('/login/')
+            return response
+        return super(AttencanceListView, self).post(request, **kwargs)
+
 class employee_applicantsList(ListView):
     model = Employee_Applicant
     context_object_name = 'employee_applicants'
+
+    def get(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            response = redirect('/login/')
+            return response
+        return super(employee_applicantsList, self).get(request, **kwargs)
+    def post(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            response = redirect('/login/')
+            return response
+        return super(employee_applicantsList, self).post(request, **kwargs)
 
 
 class EmployeesListView(ListView):
     model = Employee
     context_object_name = 'employees'
+
+    def get(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            response = redirect('/login/')
+            return response
+        return super(EmployeesListView, self).get(request, **kwargs)
+    def post(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            response = redirect('/login/')
+            return response
+        return super(EmployeesListView, self).post(request, **kwargs)
 
     
 
@@ -63,6 +112,17 @@ class EmployeesListView(ListView):
 class JobAapplicationsList(ListView):
     model = Job_Application
     context_object_name = 'job_applications'
+
+    def get(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            response = redirect('/login/')
+            return response
+        return super(JobAapplicationsList, self).get(request, **kwargs)
+    def post(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            response = redirect('/login/')
+            return response
+        return super(JobAapplicationsList, self).post(request, **kwargs)
 
 
 class EmployeeApplicantDetailView(DetailView):
@@ -82,9 +142,34 @@ class ApplicantUpdateView(UpdateView):
     success_url = '/employee_applicants'
     fields = ['job_application','employee_full_name','employee_bio', 'status']
 
-    def get(self, request, *args, **kwargs):
-        return self.post(request, *args, **kwargs)
-    
+    def post(self, request, *args, **kwargs):
+        if request.POST['status'] == 'Rejected' or  request.POST['status'] == 'pending' :
+            self.object = self.get_object()
+            request.POST = request.POST.copy()
+            request.POST['job_application'] = self.object.job_application
+            request.POST['employee_full_name'] = self.object.employee_full_name
+            request.POST['employee_bio'] = self.object.employee_bio
+
+        else:
+
+            self.object = self.get_object()
+            request.POST = request.POST.copy()
+           
+
+
+        # print(dir(request.POST))
+        # print(request.POST.values)
+        # print(request.POST.items)
+        print(request.POST['status'])
+        #if request.POST['status'] == 'Rejected':
+            
+        #   pass
+        #JA = Job_Application.objects.get(id=2)
+        # JA.department
+        #print(JA)
+        # print(request.POST.employee_full_name)
+        # print(request.POST.employee_bio)
+        return super(ApplicantUpdateView, self).post(request, **kwargs)
 
 class ApplicantDeleteView(DeleteView):
  

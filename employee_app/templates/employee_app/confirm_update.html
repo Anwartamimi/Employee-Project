@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3>Are you sure that you want to rent this book ?</h3>
+
+<a href="{% url 'rent_book' pk=object.pk %}"><button class="btn btn-success btn-xs">YES update</button></a>
+
+{% endblock content %}
+

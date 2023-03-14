@@ -5,7 +5,8 @@ from .views import (
     EmployeeApplicantDetailView,
     ApplicantUpdateView,
     ApplicantDeleteView, 
-    EmployeeCreateView
+    EmployeeCreateView,
+    
     )
 
 

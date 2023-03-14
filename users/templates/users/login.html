@@ -1,11 +1,16 @@
-{% extends 'base.html' %}
-
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
 {% block content %}
-<form method="POST" novalidate>
-	{% csrf_token %}
-	<h2>Login</h2>
-	{{form.as_p}}
-	<input type="submit" value="Login" />
-</form>
 
-{% endblock content%}
+<div class="login-card">
+	<h3>Welcome Back!</h3>
+	<form method="post" class="formsWidth">
+		{% csrf_token %}
+		{{ form|crispy }}
+		<button type="submit" class="btn btn-primary">Login</button>
+	</form>
+	<p>Not a member?<a href="#"> Register</a> <br></p>
+	<p><a href="#">Forgot password?</a></p>
+</div>
+
+{% endblock content %}

@@ -19,11 +19,12 @@ class Job_Application(models.Model):
 
     def __str__(self):
         return self.job_title
+    
 
 
 class Employee(models.Model):
     full_name = models.CharField(max_length=100)
-    birth_date = models.DateField()
+    birth_date = models.DateField(null=True, blank=True)
     joining_date = models.DateField(auto_now_add=True)
     department = models.ForeignKey(
         Department, on_delete=models.PROTECT)
@@ -37,6 +38,10 @@ class Employee(models.Model):
     def get_absolute_url(self):
         return reverse("employees")
     
+    def create(cls, full_name):
+        employee = cls(full_name=full_name)
+        # do something with the book
+        return employee
     
 class Employee_Applicant(models.Model):
 

@@ -1,9 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-
-from django.http import Http404
-
 from django.contrib.auth.models import User
 from .models import (
     Department,
@@ -12,9 +8,7 @@ from .models import (
     Employee,
     Job_Application,
     )
-
 from django.contrib.auth.mixins import LoginRequiredMixin
-
 from django.views.generic import (
     ListView, CreateView, DetailView, UpdateView, DeleteView
 )
@@ -29,7 +23,6 @@ def home(request):
     employees_applicant_count = Employee_Applicant.objects.all().count()
     department_count = Department.objects.all().count()
 
-    
     return render(request, 'employee_app/home.html',
                    {'employees_count': employees_count,
                     'employees_applicant_count': employees_applicant_count,
@@ -37,11 +30,9 @@ def home(request):
                                                       })
 
 def settings(request):
-    
     return render(request, 'employee_app/settings.html', {})
 
 def notifications(request):
-    
     return render(request, 'employee_app/notifications.html', {})
 
 
@@ -60,6 +51,7 @@ class DepartmentList(ListView):
             return response
         return super(DepartmentList, self).post(request, **kwargs)
 
+
 class AttencanceListView(ListView):
     model = Attendance
     context_object_name = 'attendances'
@@ -74,6 +66,7 @@ class AttencanceListView(ListView):
             response = redirect('/login/')
             return response
         return super(AttencanceListView, self).post(request, **kwargs)
+
 
 class employee_applicantsList(ListView):
     model = Employee_Applicant
@@ -106,8 +99,6 @@ class EmployeesListView(ListView):
             return response
         return super(EmployeesListView, self).post(request, **kwargs)
 
-    
-
 
 class JobAapplicationsList(ListView):
     model = Job_Application
@@ -129,6 +120,7 @@ class EmployeeApplicantDetailView(DetailView):
     model = Employee_Applicant
     template_name = 'employee_app/eapplicatant_detail.html'
 
+
 class ApplicantCreateView(LoginRequiredMixin, CreateView):
     model = Employee_Applicant
     template_name = 'employee_app/post_form.html'
@@ -143,7 +135,7 @@ class ApplicantUpdateView(UpdateView):
     fields = ['job_application','employee_full_name','employee_bio', 'status']
 
     def post(self, request, *args, **kwargs):
-        if request.POST['status'] == 'Rejected' or  request.POST['status'] == 'pending' :
+        if request.POST['status'] == 'Rejected' or request.POST['status'] == 'pending' :
             self.object = self.get_object()
             request.POST = request.POST.copy()
             request.POST['job_application'] = self.object.job_application
@@ -155,21 +147,25 @@ class ApplicantUpdateView(UpdateView):
             self.object = self.get_object()
             request.POST = request.POST.copy()
            
+            job_application = self.object.job_application
+            full_name = self.object.employee_full_name
+            bio = self.object.employee_bio
 
-
-        # print(dir(request.POST))
-        # print(request.POST.values)
-        # print(request.POST.items)
-        print(request.POST['status'])
-        #if request.POST['status'] == 'Rejected':
+            job_application_id = request.POST['job_application']
             
-        #   pass
-        #JA = Job_Application.objects.get(id=2)
-        # JA.department
-        #print(JA)
-        # print(request.POST.employee_full_name)
-        # print(request.POST.employee_bio)
+            queryset = Job_Application.objects.filter(
+                id=job_application_id).values('department')
+                                    
+            em = Employee.objects.create(
+                full_name=full_name, 
+                bio = bio,
+                is_active = True,
+                department_id = queryset,
+                job_application_id = job_application_id,
+                )
+                    
         return super(ApplicantUpdateView, self).post(request, **kwargs)
+
 
 class ApplicantDeleteView(DeleteView):
  
@@ -183,5 +179,3 @@ class EmployeeCreateView(CreateView):
     model = Employee
     template_name = 'employee_app/add_employee.html'
     fields = ['full_name','birth_date','department', 'bio', 'is_active', 'job_application', 'shift_start_at', 'shift_ends_at' ]
-
-    

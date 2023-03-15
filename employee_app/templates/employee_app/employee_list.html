@@ -30,9 +30,10 @@ Employees
 				<thead>
 				  <tr>
 					<th scope="col">Full Name</th>
+					<th scope="col">Bio</th>
 					<th scope="col">Department</th>
 					<th scope="col">Status</th>
-					<th scope="col">BOD</th>
+					<th scope="col">Joining Date</th>
 				  </tr>
 				</thead>
 				{% for employee in employees %}
@@ -40,9 +41,10 @@ Employees
 				<tbody>
 				  <tr>
 					<th scope="row">{{ employee.full_name }}</th>
+					<td>{{ employee.bio }}</td>
 					<td>{{ employee.department }}</td>
 					<td>{{ employee.is_active }}</td>
-					<td>{{ employee.birth_date }}</td>
+					<td>{{ employee.joining_date }}</td>
 				  </tr>
 				 
 				</tbody>

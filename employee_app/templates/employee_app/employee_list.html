@@ -40,7 +40,7 @@ Employees
 				
 				<tbody>
 				  <tr>
-					<th scope="row">{{ employee.full_name }}</th>
+					<th scope="row"><a href="{% url 'employee-detail' employee.id %}">{{ employee.full_name }}</a></th>
 					<td>{{ employee.bio }}</td>
 					<td>{{ employee.department }}</td>
 					<td>{{ employee.is_active }}</td>

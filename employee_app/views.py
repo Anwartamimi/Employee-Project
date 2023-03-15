@@ -13,6 +13,9 @@ from django.views.generic import (
     ListView, CreateView, DetailView, UpdateView, DeleteView
 )
 
+from .forms import UserForm
+
+
 # Create your views here.
 
 def home(request):
@@ -121,6 +124,11 @@ class EmployeeApplicantDetailView(DetailView):
     template_name = 'employee_app/eapplicatant_detail.html'
 
 
+class EmployeeDetailView(DetailView):
+    model = Employee
+    template_name = 'employee_app/employee_detail.html'
+
+
 class ApplicantCreateView(LoginRequiredMixin, CreateView):
     model = Employee_Applicant
     template_name = 'employee_app/post_form.html'
@@ -167,6 +175,14 @@ class ApplicantUpdateView(UpdateView):
         return super(ApplicantUpdateView, self).post(request, **kwargs)
 
 
+class EmployeeUpdateView(UpdateView):
+    model = Employee
+    template_name = 'employee_app/employee_detail.html'
+    success_url = '/employees'
+    form_class = UserForm
+    
+    
+    
 class ApplicantDeleteView(DeleteView):
  
     model = Employee_Applicant
@@ -179,3 +195,4 @@ class EmployeeCreateView(CreateView):
     model = Employee
     template_name = 'employee_app/add_employee.html'
     fields = ['full_name','birth_date','department', 'bio', 'is_active', 'job_application', 'shift_start_at', 'shift_ends_at' ]
+

@@ -21,7 +21,6 @@ class Job_Application(models.Model):
         return self.job_title
     
 
-
 class Employee(models.Model):
     full_name = models.CharField(max_length=100)
     birth_date = models.DateField(null=True, blank=True)
@@ -43,6 +42,10 @@ class Employee(models.Model):
         # do something with the book
         return employee
     
+    def get_absolute_url(self):
+        return reverse("employee-detail", kwargs={"pk": self.pk})
+        
+
 class Employee_Applicant(models.Model):
 
     job_application = models.ForeignKey('Job_application', blank=True, null=True,

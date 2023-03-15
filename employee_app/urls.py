@@ -6,6 +6,7 @@ from .views import (
     ApplicantUpdateView,
     ApplicantDeleteView, 
     EmployeeCreateView,
+    EmployeeUpdateView
     
     )
 
@@ -24,5 +25,7 @@ urlpatterns = [
     path('employee_applicants/<int:pk>', ApplicantUpdateView.as_view(), name='employee-applicant-update'),
     path('employee_applicants/<int:pk>/delete', ApplicantDeleteView.as_view(), name='employee-applicant-delete'),
     path('employees/new/', EmployeeCreateView.as_view(), name='new-employee'),
+
+    path('employee/<int:pk>/', EmployeeUpdateView.as_view(), name='employee-detail'),
 
 ]

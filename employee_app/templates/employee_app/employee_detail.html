@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <div class="content-section mt-3 p-5 shadow-lg">
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">
+                    Update Employee Information
+                </legend>
+                {{ form.full_name|as_crispy_field  }}
+                {{ form.birth_date|as_crispy_field  }}
+                {{ form.department|as_crispy_field  }}
+                {{ form.bio|as_crispy_field  }}
+                {{ form.job_application|as_crispy_field  }}
+                {{ form.is_active|as_crispy_field  }}
+                {{ form.shift_start_at|as_crispy_field  }}
+                {{ form.shift_ends_at|as_crispy_field  }}
+
+                <!--
+                    {% if form.is_active %}
+                    <p>Show paragraph</p>
+                    {% endif %}
+                -->
+                
+
+            </fieldset>
+            <div class="form-group">
+                  
+
+            <button class="btn btn-outline-primary" type="submit">Confirm</button>
+
+            </div>
+        </form>
+
+    </div>
+
+{% endblock content %}

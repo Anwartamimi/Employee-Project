@@ -180,6 +180,25 @@ class EmployeeUpdateView(UpdateView):
     template_name = 'employee_app/employee_detail.html'
     success_url = '/employees'
     form_class = UserForm
+
+    def post(self, request, *args, **kwargs):
+        if request.POST['shift_ends_at'] == 'Null' or request.POST['shift_start_at'] == 'Null' :
+            self.object = self.get_object()
+            request.POST = request.POST.copy()
+            
+            request.POST['shift_ends_at'] = self.object.shift_ends_at
+            request.POST['shift_start_at'] = self.object.shift_start_at
+
+        else:
+
+            self.object = self.get_object()
+            request.POST = request.POST.copy()
+           
+            shift_start_at = self.object.shift_ends_at
+            shift_ends_at = self.object.shift_start_at
+            
+             
+        return super(EmployeeUpdateView, self).post(request, **kwargs)
     
     
     

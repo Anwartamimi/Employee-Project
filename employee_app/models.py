@@ -31,8 +31,8 @@ class Employee(models.Model):
     is_active = models.BooleanField()
     job_application = models.ForeignKey(
         Job_Application, on_delete=models.PROTECT)
-    shift_start_at = models.DateField(null=True, blank=True)
-    shift_ends_at = models.DateField(null=True, blank=True)
+    shift_start_at = models.DateField(null=True, blank=True,)
+    shift_ends_at = models.DateField(null=True, blank=True,)
     
 
     def get_absolute_url(self):

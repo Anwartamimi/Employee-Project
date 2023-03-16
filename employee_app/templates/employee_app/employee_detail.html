@@ -3,58 +3,63 @@
 
 {% block content %}
 
-    <div class="content-section mt-3 p-5 shadow-lg">
-        <form action="" method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">
-                    Update Employee Information
-                </legend>
-                {{ form.full_name|as_crispy_field  }}
-                {{ form.birth_date|as_crispy_field  }}
-                {{ form.department|as_crispy_field  }}
-                {{ form.bio|as_crispy_field  }}
-                {{ form.job_application|as_crispy_field  }}
-                {{ form.is_active|as_crispy_field  }}
+<div class="content-section mt-3 p-5 shadow-lg">
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">
+                Update Employee Information
+            </legend>
+            {{ form.full_name|as_crispy_field }}
+            {{ form.birth_date|as_crispy_field }}
+            {{ form.department|as_crispy_field }}
+            {{ form.bio|as_crispy_field }}
+            {{ form.job_application|as_crispy_field }}
+            {{ form.is_active|as_crispy_field }}
+            {{ form.shift_start_at|as_crispy_field }}
+            {{ form.shift_ends_at|as_crispy_field }}
 
 
-                <div id="a" class='hide'>
-                    <p>{{ form.shift_start_at }}</p>
-                    <br>
-                    <p>{{ form.shift_ends_at }}</p>
-                </div>
-                
-                <script type="text/javascript">
+            <script type="text/javascript">
 
-                    const element = document.getElementById("a");
-                            
-                    const checkbutton = document.getElementById('id_is_active');
-                    checkbutton.addEventListener('change', function(ev){
-                       console.log(checkbutton.checked); 
-                       if (this.checked) {
-                        console.log("Checkbox is checked..");
-                        element.classList.remove("hide");
-                        
-                      
+                const checkbutton = document.getElementById('id_is_active');
+                const startDate = document.getElementById('id_shift_start_at');
+                const endDate = document.getElementById('id_shift_ends_at');
+                checkbutton.addEventListener('change', function (ev) {
+                    toggle(checkbutton.checked)
+
+                })
+                function toggle(checked) {
+                    if (checked) {
+                        if (startDate.hasAttribute("readonly")) {
+                            startDate.removeAttribute("readonly");
                         }
-                        else {
-                        console.log("Checkbox is not checked.."); 
-                        element.classList.add("hide");
+
+                        if (endDate.hasAttribute("readonly")) {
+                            endDate.removeAttribute("readonly");
+                        }
                     }
-                    })
-                    
-                </script>
+                    else {
+                        startDate.setAttribute("readonly", "readonly");
+                        endDate.setAttribute("readonly", "readonly");
+                    }
+                }
+                toggle(checkbutton.checked)
 
 
-            </fieldset>
-            <div class="form-group">
-                  
+
+            </script>
+
+
+        </fieldset>
+        <div class="form-group">
+
 
             <button class="btn btn-outline-primary" type="submit">Confirm</button>
 
-            </div>
-        </form>
+        </div>
+    </form>
 
-    </div>
+</div>
 
 {% endblock content %}

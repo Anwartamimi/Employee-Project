@@ -16,15 +16,35 @@
                 {{ form.bio|as_crispy_field  }}
                 {{ form.job_application|as_crispy_field  }}
                 {{ form.is_active|as_crispy_field  }}
-                {{ form.shift_start_at|as_crispy_field  }}
-                {{ form.shift_ends_at|as_crispy_field  }}
 
-                <!--
-                    {% if form.is_active %}
-                    <p>Show paragraph</p>
-                    {% endif %}
-                -->
+
+                <div id="a" class='hide'>
+                    <p>{{ form.shift_start_at }}</p>
+                    <br>
+                    <p>{{ form.shift_ends_at }}</p>
+                </div>
                 
+                <script type="text/javascript">
+
+                    const element = document.getElementById("a");
+                            
+                    const checkbutton = document.getElementById('id_is_active');
+                    checkbutton.addEventListener('change', function(ev){
+                       console.log(checkbutton.checked); 
+                       if (this.checked) {
+                        console.log("Checkbox is checked..");
+                        element.classList.remove("hide");
+                        
+                      
+                        }
+                        else {
+                        console.log("Checkbox is not checked.."); 
+                        element.classList.add("hide");
+                    }
+                    })
+                    
+                </script>
+
 
             </fieldset>
             <div class="form-group">

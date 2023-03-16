@@ -9,10 +9,12 @@ class UserForm(forms.ModelForm):
         model = Employee
         fields = ['shift_start_at','shift_ends_at' , 'full_name','birth_date', 'department', 'bio', 'job_application', 'is_active',  ]
 
-        widgets = {
-            'shift_start_at': forms.TextInput(attrs={'readonly':'readonly'}),
-            'shift_ends_at': forms.TextInput(attrs={'readonly':'readonly'}),
-        }
+        #widgets = {
+         #   'shift_start_at': forms.TextInput(attrs={'readonly':'readonly'}),
+          #  'shift_ends_at': forms.TextInput(attrs={'readonly':'readonly'}),
+        #}           
 
+
+        
 def clean_shift(self):
     return self.initial['shift_start_at', 'shift_ends_at']
